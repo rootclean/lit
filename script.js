@@ -11,8 +11,10 @@
   var fsBtn = document.getElementById("fullscreen");
   var petBtn = document.getElementById("petBtn");
   var petTarget = document.getElementById("petTarget");
+  var petLayer = document.querySelector(".pet-layer");
 
   var index = 0;
+  var settingHash = false;
 
   totalEl.textContent = slides.length;
 
@@ -22,12 +24,17 @@
     b.type = "button";
     b.className = "dot";
     b.setAttribute("aria-label", "Слайд " + (i + 1));
-    b.addEventListener("click", function () { show(i); });
+    b.addEventListener("click", function () { show(i, true); });
     dotsWrap.appendChild(b);
     return b;
   });
 
-  function show(i) {
+  function isInteractive(el) {
+    if (!el || !el.closest) return false;
+    return !!el.closest('button, a, input, textarea, select, summary, [contenteditable="true"], [contenteditable=""]');
+  }
+
+  function show(i, push) {
     index = Math.max(0, Math.min(slides.length - 1, i));
 
     slides.forEach(function (slide, n) {
@@ -47,20 +54,33 @@
     nextBtn.disabled = index === slides.length - 1;
     progressBar.style.width = ((index + 1) / slides.length) * 100 + "%";
 
-    try {
-      history.replaceState(null, "", "#" + (index + 1));
-    } catch (e) { /* file:// может запрещать replaceState — не критично */ }
+    if (push) {
+      settingHash = true;
+      try { location.hash = String(index + 1); } catch (e) { /* file:// */ }
+    } else {
+      try { history.replaceState(null, "", "#" + (index + 1)); } catch (e) { /* file:// */ }
+    }
   }
 
-  function next() { show(index + 1); }
-  function prev() { show(index - 1); }
+  function next() { show(index + 1, true); }
+  function prev() { show(index - 1, true); }
 
   nextBtn.addEventListener("click", next);
   prevBtn.addEventListener("click", prev);
 
+  // Ссылки #3 и кнопки Back/Forward
+  window.addEventListener("hashchange", function () {
+    if (settingHash) { settingHash = false; return; }
+    var n = parseInt(location.hash.replace("#", ""), 10);
+    if (Number.isFinite(n)) show(n - 1, false);
+  });
+
   // Клавиатура
   document.addEventListener("keydown", function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
+
+    // Пробел не должен красть активацию у кнопок и ссылок
+    if (e.key === " " && isInteractive(e.target)) return;
 
     if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
       e.preventDefault();
@@ -70,25 +90,35 @@
       prev();
     } else if (e.key === "Home") {
       e.preventDefault();
-      show(0);
+      show(0, true);
     } else if (e.key === "End") {
       e.preventDefault();
-      show(slides.length - 1);
+      show(slides.length - 1, true);
     } else if (e.key === "f" || e.key === "F" || e.key === "а" || e.key === "А") {
       toggleFullscreen();
     }
   });
 
   // Полный экран
+  function updateFullscreenButton() {
+    var on = !!document.fullscreenElement;
+    fsBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    fsBtn.setAttribute("aria-label", on ? "Выйти из полноэкранного режима" : "Полный экран");
+    fsBtn.title = on ? "Выйти из полноэкранного режима (F)" : "Полный экран (F)";
+  }
+
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(function () {});
+      var p = document.documentElement.requestFullscreen();
+      if (p && p.catch) p.catch(function () {});
     } else {
-      document.exitFullscreen().catch(function () {});
+      var q = document.exitFullscreen();
+      if (q && q.catch) q.catch(function () {});
     }
   }
 
   fsBtn.addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", updateFullscreenButton);
 
   // Свайпы
   var touchStartX = 0;
@@ -109,16 +139,18 @@
 
   // «Погладить кота» — сердечки
   function spawnHearts() {
-    if (!petTarget) return;
+    var layer = petLayer || petTarget;
+    if (!layer) return;
     for (var i = 0; i < 9; i++) {
       var h = document.createElement("span");
       h.className = "heart";
+      h.setAttribute("aria-hidden", "true");
       h.textContent = "♥";
       h.style.left = 12 + Math.random() * 70 + "%";
       h.style.top = 18 + Math.random() * 55 + "%";
       h.style.fontSize = 14 + Math.random() * 18 + "px";
       h.style.animationDelay = Math.random() * 0.3 + "s";
-      petTarget.appendChild(h);
+      layer.appendChild(h);
       (function (node) {
         setTimeout(function () { node.remove(); }, 2600);
       })(h);
@@ -134,7 +166,8 @@
     });
   }
 
-  // Открытие сразу на нужном слайде (#5)
+  // Стартовый слайд: hash или первый
   var fromHash = parseInt(location.hash.replace("#", ""), 10);
-  show(Number.isFinite(fromHash) ? fromHash - 1 : 0);
+  show(Number.isFinite(fromHash) ? fromHash - 1 : 0, false);
+  updateFullscreenButton();
 })();
