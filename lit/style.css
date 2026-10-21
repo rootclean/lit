@@ -1,0 +1,713 @@
+/* ============================================================
+   Котики — небольшой трактат
+   7 слайдов · HTML/CSS/JS без зависимостей
+   ============================================================ */
+
+:root {
+  --paper: #f8f1e4;
+  --paper-deep: #f1e6d2;
+  --ink: #241b12;
+  --ink-soft: #3a2f24;
+  --muted: #7a6a57;
+  --accent: #cf5a24;
+  --accent-dark: #a8431a;
+  --accent-soft: #efc6a4;
+  --sage: #66735c;
+  --line: #e4d5bf;
+  --serif: Georgia, "Times New Roman", Times, serif;
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --paw: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='64' rx='27' ry='22'/%3E%3Ccircle cx='22' cy='40' r='11'/%3E%3Ccircle cx='40' cy='26' r='11'/%3E%3Ccircle cx='60' cy='26' r='11'/%3E%3Ccircle cx='78' cy='40' r='11'/%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(140, 105, 70, 0.045) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 26px 26px, 26px 26px;
+  background-position: 0 0, 13px 13px;
+  overflow: hidden;
+}
+
+/* ---------- Общая сцена ---------- */
+
+.deck { position: relative; width: 100%; height: 100vh; height: 100dvh; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+  gap: 5vw;
+  align-items: center;
+  padding: 7vh 6.5vw 10vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 1;
+}
+
+.slide.is-active { opacity: 1; visibility: visible; z-index: 2; }
+
+/* ---------- Титульный слайд ---------- */
+
+.slide--title { display: block; padding: 0; }
+
+.title-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 32%;
+}
+
+.title-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(24, 14, 7, 0.86) 0%, rgba(24, 14, 7, 0.42) 38%, rgba(24, 14, 7, 0.05) 68%),
+    linear-gradient(to right, rgba(24, 14, 7, 0.38) 0%, rgba(24, 14, 7, 0) 55%);
+}
+
+.title-content {
+  position: absolute;
+  left: 7vw;
+  right: 7vw;
+  bottom: 10vh;
+  color: #fdf6ea;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.title-kicker {
+  font-family: var(--sans);
+  font-size: clamp(11px, 0.85vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 2.2vh;
+}
+
+.title-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(64px, 12vw, 190px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.35);
+}
+
+.title-sub {
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.9vw, 30px);
+  line-height: 1.3;
+  margin-top: 2.6vh;
+  color: #f6e9d7;
+  max-width: 24em;
+}
+
+.title-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6vw 0.8vw;
+  margin-top: 3.2vh;
+}
+
+.title-meta span {
+  font-family: var(--sans);
+  font-size: clamp(10px, 0.78vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f6e9d7;
+  border: 1px solid rgba(246, 233, 215, 0.35);
+  border-radius: 999px;
+  padding: 0.55em 1.1em;
+  backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.title-credit {
+  position: absolute;
+  right: 2.6vw;
+  bottom: 2.8vh;
+  z-index: 2;
+  font-size: clamp(9px, 0.64vw, 11px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(253, 246, 234, 0.6);
+}
+
+/* ---------- Контентные слайды ---------- */
+
+.slide--flip .slide__media { order: 2; }
+.slide--flip .slide__content { order: 1; }
+
+.slide__media {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 620px;
+  min-width: 0;
+  background: #fffdf8;
+  padding: 10px 10px 12px;
+  border-radius: 3px;
+  box-shadow:
+    0 28px 60px -28px rgba(48, 30, 12, 0.55),
+    0 4px 14px rgba(48, 30, 12, 0.14);
+  transform: rotate(-1.4deg);
+}
+
+.slide--flip .slide__media { transform: rotate(1.4deg); }
+
+.slide__media::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 92px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(226, 190, 145, 0.55);
+  box-shadow: 0 2px 6px rgba(48, 30, 12, 0.12);
+  border-radius: 1px;
+}
+
+.slide__media img {
+  display: block;
+  width: 100%;
+  height: 58vh;
+  object-fit: cover;
+  border-radius: 1px;
+  background: var(--paper-deep);
+}
+
+.slide__media figcaption {
+  padding-top: 9px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: #93826c;
+  text-align: center;
+}
+
+.slide__content { position: relative; z-index: 2; max-width: 640px; min-width: 0; }
+
+.slide__kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.slide__kicker::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  flex: none;
+}
+
+.slide__title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.3vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  margin: 1.6vh 0 1.4vh;
+  text-wrap: balance;
+}
+
+.slide__lead {
+  font-size: clamp(14px, 1.08vw, 17.5px);
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 54ch;
+  margin-bottom: 2.2vh;
+}
+
+.slide__list { list-style: none; display: flex; flex-direction: column; gap: 1.15vh; }
+
+.slide__list li {
+  position: relative;
+  padding-left: 30px;
+  font-size: clamp(14px, 1.06vw, 17px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.slide__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.22em;
+  width: 15px;
+  height: 15px;
+  background: var(--accent);
+  -webkit-mask: var(--paw) center / contain no-repeat;
+  mask: var(--paw) center / contain no-repeat;
+  opacity: 0.85;
+}
+
+.slide__num {
+  position: absolute;
+  right: 2.6vw;
+  bottom: -1.5vh;
+  font-family: var(--serif);
+  font-size: clamp(120px, 15vw, 210px);
+  line-height: 1;
+  color: rgba(207, 90, 36, 0.075);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---------- Особые блоки ---------- */
+
+/* 4 карточки (анатомия) */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1vh 1vw;
+}
+
+.feature {
+  background: rgba(255, 253, 248, 0.66);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.35vh 1.1vw;
+}
+
+.feature h3 {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.55vh;
+}
+
+.feature p {
+  font-size: clamp(12.5px, 0.94vw, 15px);
+  line-height: 1.42;
+  color: var(--ink-soft);
+}
+
+/* Таймлайн (история) */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15vh;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-soft), rgba(239, 198, 164, 0.15));
+}
+
+.timeline li {
+  position: relative;
+  font-size: clamp(13px, 0.98vw, 16px);
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 0.35em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fffdf8;
+  border: 2.5px solid var(--accent);
+}
+
+.timeline .year {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.2vh;
+}
+
+/* Породы */
+.breeds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1vh 1vw;
+}
+
+.breed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3vh;
+  padding: 1.1vh 1vw;
+  background: rgba(255, 253, 248, 0.55);
+  border-left: 2px solid var(--accent-soft);
+  border-radius: 0 10px 10px 0;
+}
+
+.breed b {
+  font-family: var(--serif);
+  font-size: clamp(14px, 1.02vw, 16.5px);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.breed span {
+  font-size: clamp(12px, 0.88vw, 14px);
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* Факты */
+.facts {
+  list-style: none;
+  counter-reset: fact;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3vh 1.2vw;
+}
+
+.facts li {
+  counter-increment: fact;
+  position: relative;
+  padding-left: 34px;
+  font-size: clamp(13px, 0.98vw, 16px);
+  line-height: 1.42;
+  color: var(--ink-soft);
+}
+
+.facts li::before {
+  content: counter(fact, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+.facts li:last-child { grid-column: 1 / -1; }
+
+/* Финал */
+.slide--final .slide__title { font-size: clamp(28px, 2.9vw, 46px); }
+
+.slide--facts .slide__title { font-size: clamp(30px, 2.9vw, 46px); }
+
+.pet-btn {
+  margin-top: 2.6vh;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff8ee;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  box-shadow: 0 12px 26px -12px rgba(207, 90, 36, 0.9);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.pet-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.pet-btn:active { transform: scale(0.98); }
+
+.pet-btn::before {
+  content: "";
+  width: 17px;
+  height: 17px;
+  background: currentColor;
+  -webkit-mask: var(--paw) center / contain no-repeat;
+  mask: var(--paw) center / contain no-repeat;
+}
+
+.sources {
+  margin-top: 2vh;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #9c8a73;
+  max-width: 48ch;
+}
+
+/* Сердечки при «поглаживании» */
+.heart {
+  position: absolute;
+  z-index: 5;
+  color: var(--accent);
+  font-family: var(--serif);
+  pointer-events: none;
+  animation: floatUp 2.2s ease-out forwards;
+  text-shadow: 0 2px 8px rgba(207, 90, 36, 0.35);
+}
+
+@keyframes floatUp {
+  0%   { opacity: 0; transform: translateY(0) scale(0.6) rotate(-6deg); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-90px) scale(1.15) rotate(8deg); }
+}
+
+/* ---------- Появление (спецэффект) ---------- */
+
+.slide.is-active .slide__media,
+.slide.is-active .slide__kicker,
+.slide.is-active .slide__title,
+.slide.is-active .slide__lead,
+.slide.is-active .slide__list,
+.slide.is-active .features,
+.slide.is-active .timeline,
+.slide.is-active .breeds,
+.slide.is-active .facts,
+.slide.is-active .pet-btn,
+.slide.is-active .sources {
+  animation: riseIn 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.slide.is-active .slide__media { animation-delay: 0.08s; }
+.slide.is-active .slide__kicker { animation-delay: 0.12s; }
+.slide.is-active .slide__title { animation-delay: 0.18s; }
+.slide.is-active .slide__lead { animation-delay: 0.26s; }
+.slide.is-active .slide__list,
+.slide.is-active .features,
+.slide.is-active .timeline,
+.slide.is-active .breeds,
+.slide.is-active .facts { animation-delay: 0.34s; }
+.slide.is-active .pet-btn { animation-delay: 0.46s; }
+.slide.is-active .sources { animation-delay: 0.52s; }
+
+.slide.is-active .slide__list li,
+.slide.is-active .facts li,
+.slide.is-active .timeline li,
+.slide.is-active .feature,
+.slide.is-active .breed {
+  animation: riseIn 0.5s ease both;
+}
+
+.slide.is-active .slide__list li:nth-child(1) { animation-delay: 0.38s; }
+.slide.is-active .slide__list li:nth-child(2) { animation-delay: 0.44s; }
+.slide.is-active .slide__list li:nth-child(3) { animation-delay: 0.50s; }
+.slide.is-active .slide__list li:nth-child(4) { animation-delay: 0.56s; }
+.slide.is-active .slide__list li:nth-child(5) { animation-delay: 0.62s; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Интерфейс ---------- */
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(36, 27, 18, 0.07);
+  z-index: 60;
+}
+
+.progress__bar {
+  display: block;
+  height: 100%;
+  width: 14%;
+  background: linear-gradient(to right, var(--accent), #e8863f);
+  transition: width 0.45s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.controls {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: rgba(250, 244, 232, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 14px 34px -18px rgba(48, 30, 12, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 70;
+}
+
+.controls__btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.controls__btn:hover { background: var(--accent); color: #fff8ee; }
+.controls__btn:active { transform: scale(0.94); }
+.controls__btn:disabled { color: #c6b6a3; cursor: default; background: transparent; }
+
+.controls__btn--icon { display: grid; place-items: center; }
+
+.controls__counter {
+  min-width: 56px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.controls__counter .slash { margin: 0 5px; color: #c6b6a3; }
+
+.controls__sep {
+  width: 1px;
+  height: 22px;
+  margin: 0 4px;
+  background: var(--line);
+}
+
+.dots {
+  position: fixed;
+  left: 24px;
+  bottom: 30px;
+  display: flex;
+  gap: 8px;
+  z-index: 70;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: #d8c7b0;
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.dot:hover { background: var(--accent-soft); }
+.dot.is-active { width: 26px; background: var(--accent); }
+
+/* ---------- Адаптивность ---------- */
+
+@media (max-width: 900px) {
+  .slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    align-content: start;
+    gap: 2.4vh;
+    padding: 5vh 5.5vw 13vh;
+    overflow-y: auto;
+  }
+
+  .slide--flip .slide__media,
+  .slide--flip .slide__content { order: 0; }
+
+  .slide__media { width: 100%; max-width: none; }
+  .slide__media img { height: 30vh; }
+  .slide__num { display: none; }
+
+  .slide__title { font-size: 30px; }
+
+  .features,
+  .breeds,
+  .facts { grid-template-columns: 1fr; }
+
+  .facts li:last-child { grid-column: auto; }
+
+  .title-content { bottom: 12vh; }
+  .title-credit { display: none; }
+  .dots { display: none; }
+  .controls { bottom: 14px; }
+}
+
+@media (max-height: 620px) {
+  .slide { padding-top: 4vh; padding-bottom: 12vh; }
+  .slide__media img { height: 46vh; }
+  .slide__title { font-size: clamp(26px, 3vw, 40px); }
+  .slide__lead { display: none; }
+  .slide__list li { font-size: 13.5px; }
+}
+
+/* ---------- Печать / PDF ---------- */
+
+@media print {
+  @page { size: 13.333in 7.5in; margin: 0; }
+
+  html, body { overflow: visible; background: #f8f1e4; }
+  .deck { height: auto; }
+
+  .slide,
+  .slide * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+
+  .slide {
+    position: relative;
+    inset: auto;
+    width: 1280px;
+    height: 720px;
+    visibility: visible !important;
+    page-break-after: always;
+    break-after: page;
+    padding: 60px 80px 90px;
+  }
+
+  .slide__media { transform: none !important; }
+  .slide__media img { height: 400px; }
+  .slide__num { display: none; }
+  .controls, .dots, .progress, .heart { display: none !important; }
+
+  .slide--title { padding: 0; }
+  .title-image { position: absolute; }
+}
+
+/* ---------- Уважение к настройкам движения ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
