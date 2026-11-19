@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Судьба семьи Раскольниковых после преступления: смерть матери, брак Дуни, каторга Родиона">
+  <rect width="800" height="600" fill="#fbf6ec"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#ded2bd" stroke-width="1.5"/>
+  <rect x="27" y="27" width="746" height="546" fill="none" stroke="#ece1cd" stroke-width="1"/>
+
+  <text x="400" y="74" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" letter-spacing="3" fill="#2b241c">ЧЕМ ВСЁ КОНЧИЛОСЬ</text>
+  <line x1="316" y1="92" x2="484" y2="92" stroke="#b08a52" stroke-width="1.5"/>
+
+  <line x1="196" y1="170" x2="196" y2="452" stroke="#e3d8c2" stroke-width="2"/>
+
+  <!-- мать -->
+  <circle cx="196" cy="196" r="8" fill="#8c3a2a"/>
+  <text x="150" y="202" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Мать</text>
+  <text x="234" y="188" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Заболела во время суда.</text>
+  <text x="234" y="212" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Через две недели умерла.</text>
+
+  <!-- Дуня -->
+  <circle cx="196" cy="304" r="8" fill="#b08a52"/>
+  <text x="150" y="310" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Дуня</text>
+  <text x="234" y="296" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Через два месяца вышла</text>
+  <text x="234" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">замуж за Разумихина.</text>
+
+  <!-- Родион -->
+  <circle cx="196" cy="412" r="8" fill="#2b241c"/>
+  <text x="150" y="418" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Родион</text>
+  <text x="234" y="404" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Каторга в Сибири. Рядом — Соня.</text>
+  <text x="234" y="428" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Дуню и Разумихина ждёт переезд туда же.</text>
+
+  <line x1="120" y1="486" x2="680" y2="486" stroke="#e3d8c2" stroke-width="1"/>
+  <text x="400" y="522" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-style="italic" fill="#6f6555">Семья распалась, но не исчезла: Разумихин берёт на себя заботу о Дуне и о деле брата.</text>
+  <text x="400" y="556" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#7a6f5e">ЭПИЛОГ, I–II</text>
+</svg>

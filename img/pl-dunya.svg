@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Выбор Дуни: брат или жених Лужин">
+  <rect width="800" height="600" fill="#fbf6ec"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#ded2bd" stroke-width="1.5"/>
+  <rect x="27" y="27" width="746" height="546" fill="none" stroke="#ece1cd" stroke-width="1"/>
+
+  <text x="400" y="74" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" letter-spacing="3" fill="#2b241c">ВЫБОР ДУНИ</text>
+  <line x1="340" y1="92" x2="460" y2="92" stroke="#b08a52" stroke-width="1.5"/>
+
+  <!-- весы -->
+  <line x1="400" y1="150" x2="400" y2="470" stroke="#2b241c" stroke-width="3"/>
+  <line x1="400" y1="150" x2="400" y2="470" stroke="#2b241c" stroke-width="3"/>
+  <circle cx="400" cy="150" r="7" fill="#fbf6ec" stroke="#2b241c" stroke-width="2"/>
+  <line x1="250" y1="182" x2="550" y2="182" stroke="#2b241c" stroke-width="2.6"/>
+  <path d="M320 470 h160" stroke="#2b241c" stroke-width="3"/>
+  <path d="M355 470 l-18 34 h126 l-18 -34" fill="none" stroke="#2b241c" stroke-width="2"/>
+
+  <g stroke="#2b241c" stroke-width="1.1">
+    <line x1="250" y1="182" x2="250" y2="286"/>
+    <line x1="550" y1="182" x2="550" y2="286"/>
+    <line x1="196" y1="286" x2="304" y2="286"/>
+    <line x1="496" y1="286" x2="604" y2="286"/>
+    <path d="M196 286 a54 54 0 0 0 108 0" fill="#f4ecdc"/>
+    <path d="M496 286 a54 54 0 0 0 108 0" fill="#f4ecdc"/>
+  </g>
+
+  <text x="250" y="240" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Лужин</text>
+  <text x="550" y="240" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">брат</text>
+
+  <text x="250" y="386" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">человек с деньгами,</text>
+  <text x="250" y="406" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">расчёт и опора</text>
+  <text x="550" y="386" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">брат, которому</text>
+  <text x="550" y="406" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">нужна её жертва</text>
+
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="16.5" font-style="italic" fill="#8c3a2a">
+    <text x="400" y="524" text-anchor="middle">«Или я, или Лужин».</text>
+  </g>
+  <text x="400" y="554" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#7a6f5e">Слова Родиона — ч. 3, гл. 3</text>
+</svg>

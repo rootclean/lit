@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Чем жили Раскольниковы: пенсион матери, место гувернантки Дуни, занятия Родиона">
+  <rect width="800" height="600" fill="#fbf6ec"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#ded2bd" stroke-width="1.5"/>
+  <rect x="27" y="27" width="746" height="546" fill="none" stroke="#ece1cd" stroke-width="1"/>
+
+  <text x="400" y="74" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" letter-spacing="3" fill="#2b241c">ЧЕМ ЖИЛИ</text>
+  <line x1="348" y1="92" x2="452" y2="92" stroke="#b08a52" stroke-width="1.5"/>
+
+  <!-- колонка 1: мать -->
+  <circle cx="164" cy="180" r="46" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.5"/>
+  <rect x="146" y="168" width="36" height="26" fill="none" stroke="#2b241c" stroke-width="1.5"/>
+  <path d="M146 168 L164 184 L182 168" fill="none" stroke="#2b241c" stroke-width="1.5"/>
+  <text x="164" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Мать</text>
+  <text x="164" y="296" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">пенсион и дом</text>
+  <text x="164" y="318" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">120 рублей в год</text>
+  <text x="164" y="340" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">письма сыну</text>
+
+  <!-- колонка 2: Дуня -->
+  <circle cx="400" cy="180" r="46" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.5"/>
+  <g fill="none" stroke="#2b241c" stroke-width="1.5">
+    <path d="M382 164 h30 a6 6 0 0 1 6 6 v26 h-42 v-26 a6 6 0 0 1 6 -6 z"/>
+    <line x1="388" y1="174" x2="416" y2="174"/>
+    <line x1="388" y1="182" x2="412" y2="182"/>
+  </g>
+  <text x="400" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Дуня</text>
+  <text x="400" y="296" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">место гувернантки</text>
+  <text x="400" y="318" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">100 рублей взяты</text>
+  <text x="400" y="340" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">вперёд, в счёт долга</text>
+
+  <!-- колонка 3: Родион -->
+  <circle cx="636" cy="180" r="46" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.5"/>
+  <g fill="none" stroke="#2b241c" stroke-width="1.5">
+    <path d="M626 204 c10 -22 18 -34 30 -46"/>
+    <path d="M656 158 l6 -6 l4 4 l-6 6 z" fill="#2b241c"/>
+    <path d="M620 206 h28"/>
+  </g>
+  <text x="636" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">Родион</text>
+  <text x="636" y="296" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">студент без занятий</text>
+  <text x="636" y="318" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">закладывает вещи</text>
+  <text x="636" y="340" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#6f6555">часы отца — 1 руб. 15 коп.</text>
+
+  <line x1="86" y1="392" x2="714" y2="392" stroke="#e3d8c2" stroke-width="1"/>
+
+  <g font-family="Georgia, 'Times New Roman', serif" font-size="16.5" fill="#2b241c">
+    <text x="86" y="440">Мать и Дуня работают и экономят, чтобы Родион мог учиться.</text>
+    <text x="86" y="470">Он берёт эти деньги и не может их принять.</text>
+  </g>
+
+  <text x="86" y="530" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#7a6f5e">Письмо матери — ч. 1, гл. 3 · слова Раскольникова о сестре — ч. 1, гл. 4</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Место для титульного изображения">
+  <rect width="1600" height="900" fill="#f6f1e6"/>
+  <rect x="24" y="24" width="1552" height="852" fill="none" stroke="#ded2bd" stroke-width="2"/>
+  <rect x="38" y="38" width="1524" height="824" fill="none" stroke="#ece1cd" stroke-width="1.5"/>
+
+  <text x="800" y="404" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" letter-spacing="6" fill="#2b241c">ТИТУЛЬНЫЙ СЛАЙД</text>
+  <line x1="640" y1="440" x2="960" y2="440" stroke="#b08a52" stroke-width="2"/>
+  <text x="800" y="500" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-style="italic" fill="#6f6555">Сюда встанет изображение колледжа</text>
+  <text x="800" y="546" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#7a6f5e">Положите файл с именем title.jpg в папку img — он подхватится сам</text>
+  <text x="800" y="586" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="19" fill="#7a6f5e">Пока показывается этот заполнитель</text>
+</svg>

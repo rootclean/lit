@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Схема семьи Раскольниковых: отец, мать, сын и дочь">
+  <rect width="800" height="600" fill="#fbf6ec"/>
+  <rect x="18" y="18" width="764" height="564" fill="none" stroke="#ded2bd" stroke-width="1.5"/>
+  <rect x="27" y="27" width="746" height="546" fill="none" stroke="#ece1cd" stroke-width="1"/>
+
+  <text x="400" y="76" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" letter-spacing="4" fill="#2b241c">СЕМЬЯ РАСКОЛЬНИКОВЫХ</text>
+  <line x1="322" y1="94" x2="478" y2="94" stroke="#b08a52" stroke-width="1.5"/>
+
+  <!-- родители -->
+  <line x1="330" y1="185" x2="470" y2="185" stroke="#2b241c" stroke-width="1.6"/>
+  <circle cx="280" cy="185" r="48" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.6"/>
+  <circle cx="520" cy="185" r="48" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.6"/>
+  <text x="280" y="180" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="19" fill="#8c3a2a">ОТЕЦ</text>
+  <text x="280" y="203" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#8c3a2a">†</text>
+  <text x="520" y="185" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="17" fill="#2b241c">П. А.</text>
+  <text x="520" y="208" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#7a6f5e">мать</text>
+
+  <text x="280" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Отец</text>
+  <text x="280" y="282" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">умер до начала романа</text>
+
+  <text x="520" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Пульхерия Александровна</text>
+  <text x="520" y="282" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">вдова, живёт в провинции</text>
+
+  <!-- линии к детям -->
+  <line x1="400" y1="233" x2="400" y2="330" stroke="#2b241c" stroke-width="1.6"/>
+  <line x1="280" y1="330" x2="520" y2="330" stroke="#2b241c" stroke-width="1.6"/>
+  <line x1="280" y1="330" x2="280" y2="370" stroke="#2b241c" stroke-width="1.6"/>
+  <line x1="520" y1="330" x2="520" y2="370" stroke="#2b241c" stroke-width="1.6"/>
+
+  <!-- дети -->
+  <circle cx="280" cy="418" r="48" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.6"/>
+  <circle cx="520" cy="418" r="48" fill="#f4ecdc" stroke="#2b241c" stroke-width="1.6"/>
+  <text x="280" y="426" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#2b241c">Р.</text>
+  <text x="520" y="426" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#2b241c">А. Р.</text>
+
+  <text x="280" y="495" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Родион Романович</text>
+  <text x="280" y="515" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">сын, студент</text>
+
+  <text x="520" y="495" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#2b241c">Авдотья Романовна</text>
+  <text x="520" y="515" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12.5" fill="#7a6f5e">дочь, Дуня</text>
+
+  <text x="400" y="556" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14.5" font-style="italic" fill="#6f6555">Всё, что осталось от семьи, — мать, сын и дочь.</text>
+</svg>

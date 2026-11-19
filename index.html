@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Котики — небольшой трактат</title>
-  <meta name="description" content="Семь слайдов о котиках: наука, анатомия, история, породы и факты.">
+  <title>История семьи Раскольниковых — презентация по литературе</title>
+  <meta name="description" content="История семьи Раскольниковых в романе Ф. М. Достоевского «Преступление и наказание»: состав, положение, быт, отношения и судьба после преступления.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,156 +13,225 @@
 
   <main class="deck" id="deck">
 
-    <!-- 1. ТИТУЛ -->
-    <section class="slide slide--title is-active" data-slide="1">
-      <img class="title-image" src="img/title.jpg" alt="Рыжий кот смотрит в камеру">
-      <div class="title-shade" aria-hidden="true"></div>
-      <div class="title-content">
-        <p class="title-kicker">Небольшой трактат · 7 слайдов</p>
-        <h1 class="title-name">Котики.</h1>
-        <p class="title-sub">Необъективный обзор<br>самого важного явления в мире</p>
-        <div class="title-meta"><span><i>Felis catus</i></span><span>≈9500 лет рядом</span></div>
-      </div>
-      <p class="title-credit">Фото: TheCatAPI</p>
+    <!-- 1. ТИТУЛ: только изображение, текста нет -->
+    <section class="slide slide--title is-active" data-slide="1" aria-label="Титульный слайд">
+      <img class="title-image" src="img/title.jpg" alt="Титульное изображение"
+           onerror="this.onerror=null;this.src='img/title-placeholder.svg';">
     </section>
 
-    <!-- 2. НАУКА -->
+    <!-- 2. СОСТАВ СЕМЬИ -->
     <section class="slide" data-slide="2">
-      <figure class="slide__media">
-        <img src="img/slide-2.jpg" alt="Кот лежит на ковре и смотрит в камеру" decoding="async">
-        <figcaption>Профессиональный лежебока. Фото: TheCatAPI</figcaption>
+      <figure class="plate plate--square">
+        <img class="plate__img" src="img/photo-02.jpg" alt="Родион Раскольников. Рисунок П. М. Боклевского" decoding="async" onerror="this.onerror=null;this.src='img/pl-family.svg';">
+        <figcaption class="plate__cap">Родион Раскольников. Рисунок П. М. Боклевского, 1880-е.</figcaption>
       </figure>
       <div class="slide__content">
-        <p class="slide__kicker">02 · Наука</p>
-        <h2 class="slide__title">Кто вы, мистер Кот?</h2>
-        <p class="slide__lead">Кошка живёт рядом с человеком дольше, чем существует письменность. За это время она неплохо устроилась.</p>
+        <p class="slide__kicker">02 · Состав семьи</p>
+        <h2 class="slide__title">Их трое</h2>
+        <p class="slide__lead">К началу романа в семье Раскольниковых осталось трое: мать, сын и дочь. Отец умер раньше — он остался только в детском сне Родиона.</p>
         <ul class="slide__list">
-          <li>Одомашнены около&nbsp;10&nbsp;000&nbsp;лет назад. Древнейшее захоронение человека с кошкой — Кипр, около&nbsp;7500&nbsp;г.&nbsp;до&nbsp;н.&nbsp;э.</li>
-          <li>Костей — 230, мышц в каждом ухе — 32. Неудивительно, что уши живут своей жизнью.</li>
-          <li>Мурчат на 25–150&nbsp;Гц. Есть гипотеза, что низкие частоты помогают костям срастаться.</li>
-          <li>Спят 12–16 часов в сутки: до двух третей жизни — лёжа.</li>
-          <li>Около 250 млн нейронов в коре — вдвое меньше, чем у собаки. Кошка об этом не знает и продолжает считать себя главной.</li>
+          <li>Мать — Пульхерия Александровна, вдова, живёт в провинции.</li>
+          <li>Дочь — Авдотья Романовна, Дуня, младшая сестра.</li>
+          <li>Сын — Родион Романович, студент, живёт в Петербурге отдельно.</li>
         </ul>
+        <blockquote class="quote">
+          <p>«Ты знаешь, как я люблю тебя; ты один у нас, у меня и у Дуни, ты наше все, вся надежда, упование наше».</p>
+          <cite>Письмо Пульхерии Александровны — ч. 1, гл. 3</cite>
+        </blockquote>
       </div>
       <span class="slide__num" aria-hidden="true">02</span>
     </section>
 
-    <!-- 3. АНАТОМИЯ -->
+    <!-- 3. ПОЛОЖЕНИЕ СЕМЬИ -->
     <section class="slide slide--flip" data-slide="3">
-      <figure class="slide__media">
-        <img src="img/slide-3.jpg" alt="Морда кота крупным планом: глаз и усы" decoding="async">
-        <figcaption>Вибриссы в рабочем положении. Фото: TheCatAPI</figcaption>
+      <figure class="plate plate--cover">
+        <img class="plate__img" src="img/photo-03.jpg" alt="Сенная площадь в Петербурге. Литография Ф. Перро" decoding="async" onerror="this.onerror=null;this.src='img/pl-money.svg';">
+        <figcaption class="plate__cap">Сенная площадь. Литография Ф. Перро, 1841.</figcaption>
       </figure>
       <div class="slide__content">
-        <p class="slide__kicker">03 · Анатомия</p>
-        <h2 class="slide__title">Анатомия обаяния</h2>
-        <p class="slide__lead">Всё, что кажется милым, на самом деле — инженерия.</p>
-        <div class="features">
-          <div class="feature">
-            <h3>Глаза</h3>
-            <p>Тапетум — зеркальный слой. Им нужно в шесть раз меньше света, чем человеку. В полной темноте — нет.</p>
-          </div>
-          <div class="feature">
-            <h3>Усы</h3>
-            <p>Вибриссы шириной с тело: встроенный дальномер. Стричь нельзя — это не украшение.</p>
-          </div>
-          <div class="feature">
-            <h3>Уши</h3>
-            <p>32 мышцы, поворот на 180° — и всё это независимо для каждого уха. Живой радар.</p>
-          </div>
-          <div class="feature">
-            <h3>Хвост</h3>
-            <p>Балансир и индикатор настроения. Дёргается — лучше не гладить.</p>
-          </div>
-        </div>
+        <p class="slide__kicker">03 · Положение</p>
+        <h2 class="slide__title">Всё считано до рубля</h2>
+        <p class="slide__lead">Семья живёт на пенсию матери и на жалованье Дуни. Никакого состояния у них нет: денег хватает только на самое необходимое.</p>
+        <ul class="slide__list">
+          <li>Пенсия матери — сто двадцать рублей в год.</li>
+          <li>Пятнадцать рублей она заняла у местного купца, чтобы послать сыну.</li>
+          <li>Дуня взяла сто рублей вперёд у Свидригайловых и теперь у них в долгу.</li>
+          <li>Отцовские часы Родион заложил за рубль пятнадцать копеек.</li>
+        </ul>
+        <blockquote class="quote">
+          <p>«Чем могла я с моими ста двадцатью рублями в год пенсиона помочь тебе?»</p>
+          <cite>Письмо Пульхерии Александровны — ч. 1, гл. 3</cite>
+        </blockquote>
       </div>
       <span class="slide__num" aria-hidden="true">03</span>
     </section>
 
-    <!-- 4. ИСТОРИЯ -->
+    <!-- 4. КАК ЖИЛИ -->
     <section class="slide" data-slide="4">
-      <figure class="slide__media">
-        <img src="img/slide-4.jpg" alt="Чёрный кот в солнцезащитных очках лежит на столе" decoding="async">
-        <figcaption>Звезда интернета. Фото: TheCatAPI</figcaption>
+      <figure class="plate plate--cover">
+        <img class="plate__img" src="img/photo-04.jpg" alt="Дом на Гражданской улице, 19 — так называемый дом Раскольникова" decoding="async" onerror="this.onerror=null;this.src='img/pl-kamorka.svg';">
+        <figcaption class="plate__cap">Дом на Гражданской улице, 19 — «дом Раскольникова».</figcaption>
       </figure>
       <div class="slide__content">
-        <p class="slide__kicker">04 · Культура</p>
-        <h2 class="slide__title">От Бастет до мемов</h2>
-        <p class="slide__lead">Путь от божества до интернет-звезды занял девять&nbsp;с&nbsp;половиной&nbsp;тысяч&nbsp;лет.</p>
-        <ol class="timeline">
-          <li><span class="year">около&nbsp;7500&nbsp;г.&nbsp;до&nbsp;н.&nbsp;э.</span>Кипр: кошку хоронят вместе с человеком.</li>
-          <li><span class="year">около&nbsp;2000&nbsp;г.&nbsp;до&nbsp;н.&nbsp;э.</span>Египет: кошек изображают рядом с людьми; позже они становятся спутницами Бастет. По свидетельству античных авторов, за убийство кошки карали смертью.</li>
-          <li><span class="year">Средние века</span>Европа: из символа уюта — в символ ведьмы.</li>
-          <li><span class="year">1871</span>Лондон, Хрустальный дворец: первая выставка кошек.</li>
-          <li><span class="year">2005–2015</span>Интернет: YouTube, «I Can Has Cheezburger», Grumpy Cat. Кот стал контентом.</li>
-        </ol>
+        <p class="slide__kicker">04 · Как жили</p>
+        <h2 class="slide__title">Каморка вместо квартиры</h2>
+        <p class="slide__lead">Родион снимает комнату в пятиэтажном доме у Сенной. За неё он должен хозяйке.</p>
+        <ul class="slide__list">
+          <li>Он старается проскользнуть мимо кухни незамеченным.</li>
+          <li>До дома процентщицы — семьсот тридцать шагов; он сосчитал их сам.</li>
+        </ul>
+        <blockquote class="quote">
+          <p>«Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру».</p>
+          <cite>ч. 1, гл. 1</cite>
+        </blockquote>
       </div>
       <span class="slide__num" aria-hidden="true">04</span>
     </section>
 
-    <!-- 5. ПОРОДЫ -->
+    <!-- 5. ЗАНЯТИЯ -->
     <section class="slide slide--flip" data-slide="5">
-      <figure class="slide__media">
-        <img src="img/slide-5.jpg" alt="Пушистый кот сидит в снегу" decoding="async">
-        <figcaption>Судя по шубе, сибирская. Фото: TheCatAPI</figcaption>
+      <figure class="plate plate--tall">
+        <img class="plate__img" src="img/photo-05.jpg" alt="Дуня Раскольникова. Рисунок П. М. Боклевского" decoding="async" onerror="this.onerror=null;this.src='img/pl-work.svg';">
+        <figcaption class="plate__cap">Дуня Раскольникова. Рисунок П. М. Боклевского.</figcaption>
       </figure>
       <div class="slide__content">
-        <p class="slide__kicker">05 · Породы</p>
-        <h2 class="slide__title">Краткий гид по породам</h2>
-        <p class="slide__lead">Все кошки прекрасны. Некоторые — ещё и очень большие.</p>
-        <div class="breeds">
-          <div class="breed"><b>Мейн-кун</b><span>— «кот-собака», до 12 кг. Обожает хозяина и воду.</span></div>
-          <div class="breed"><b>Сибирская</b><span>— тройная шуба. Переживёт зиму и ваши попытки посадить её на диету.</span></div>
-          <div class="breed"><b>Бенгальская</b><span>— леопард в квартире. Любит воду и высоту.</span></div>
-          <div class="breed"><b>Сфинкс</b><span>— без шерсти, но с характером и тёплым пузом.</span></div>
-          <div class="breed"><b>Британская</b><span>— плюшевый флегматик. Идеален для дивана.</span></div>
-          <div class="breed"><b>Шотландская</b><span>— уши-конвертики и мудрый взгляд.</span></div>
-        </div>
+        <p class="slide__kicker">05 · Занятия</p>
+        <h2 class="slide__title">Кто чем жил</h2>
+        <p class="slide__lead">Работают в семье женщины. Мать ведёт дом и пишет письма, Дуня служит, а Родион учится — точнее, должен учиться.</p>
+        <ul class="slide__list">
+          <li>Мать: хозяйство, письма сыну, экономия на всём.</li>
+          <li>Дуня: место гувернантки у Свидригайловых, сто рублей взяты вперёд.</li>
+          <li>Родион: студент; живёт закладами вещей и деньгами матери.</li>
+        </ul>
+        <blockquote class="quote">
+          <p>«Тяжело за двести рублей всю жизнь в гувернантках по губерниям шляться...»</p>
+          <cite>Родион о сестре — ч. 1, гл. 4</cite>
+        </blockquote>
       </div>
       <span class="slide__num" aria-hidden="true">05</span>
     </section>
 
-    <!-- 6. ФАКТЫ -->
-    <section class="slide slide--facts" data-slide="6">
-      <figure class="slide__media">
-        <img src="img/slide-6.jpg" alt="Кот лакомится мороженым" decoding="async">
-        <figcaption>Ест то, что не может распробовать. Фото: TheCatAPI</figcaption>
+    <!-- 6. МАТЬ И СЫН -->
+    <section class="slide" data-slide="6">
+      <figure class="plate plate--tall">
+        <img class="plate__img" src="img/photo-06.jpg" alt="Павел Орленев в роли Раскольникова" decoding="async" onerror="this.onerror=null;this.src='img/pl-letter.svg';">
+        <figcaption class="plate__cap">Павел Орленев в роли Раскольникова. Фото 1899 г.</figcaption>
       </figure>
       <div class="slide__content">
-        <p class="slide__kicker">06 · Факты</p>
-        <h2 class="slide__title">Семь фактов, звучащих как выдумка</h2>
-        <ul class="facts">
-          <li>Не чувствуют сладкого: рецептор Tas1r2 сломан.</li>
-          <li>У кошки есть третье веко — мигательная перепонка.</li>
-          <li>Медленное моргание значит «я тебе доверяю». Проверено в 2020-м.</li>
-          <li>Отпечаток носа уникален, как отпечаток пальца.</li>
-          <li>Мурчат не только от удовольствия, но и чтобы успокоиться.</li>
-          <li>Потеют только подушечками лап, а в жару часто дышат.</li>
-          <li>Взрослые кошки не всасывают воду, а лакают.</li>
+        <p class="slide__kicker">06 · Мать и сын</p>
+        <h2 class="slide__title">Для неё он — вся надежда</h2>
+        <p class="slide__lead">Пульхерия Александровна живёт мыслью о старшем сыне. Она гордится им, ждёт его и не допускает мысли, что с ним что-то не так.</p>
+        <ul class="slide__list">
+          <li>Письмо начинается с любви и заканчивается надеждой на его будущее.</li>
+          <li>Она уверена, что всё наладится и он вернётся в университет.</li>
+          <li>При встрече она видит в нём прежнего мальчика и не замечает перемены.</li>
         </ul>
+        <blockquote class="quote">
+          <p>«— Родя, милый мой, первенец ты мой, — говорила она, рыдая, — вот ты теперь такой же, как был маленький...»</p>
+          <cite>ч. 6, гл. 7</cite>
+        </blockquote>
       </div>
       <span class="slide__num" aria-hidden="true">06</span>
     </section>
 
-    <!-- 7. ИТОГ -->
-    <section class="slide slide--flip slide--final" data-slide="7">
-      <figure class="slide__media" id="petTarget">
-        <img src="img/slide-7.jpg" alt="Полосатый кот спит на солнце" decoding="async">
-        <div class="pet-layer" aria-hidden="true"></div>
-        <figcaption>Идеальный финал. Фото: TheCatAPI</figcaption>
+    <!-- 7. ДУНЯ -->
+    <section class="slide slide--flip" data-slide="7">
+      <figure class="plate plate--tall">
+        <img class="plate__img" src="img/photo-07.jpg" alt="Пётр Лужин. Рисунок П. М. Боклевского" decoding="async" onerror="this.onerror=null;this.src='img/pl-dunya.svg';">
+        <figcaption class="plate__cap">Пётр Лужин. Рисунок П. М. Боклевского.</figcaption>
       </figure>
       <div class="slide__content">
-        <p class="slide__kicker">07 · Итог</p>
-        <h2 class="slide__title">Кот — это не питомец.<br>Это стиль жизни.</h2>
+        <p class="slide__kicker">07 · Сестра</p>
+        <h2 class="slide__title">Она готова заплатить собой</h2>
+        <p class="slide__lead">Дуня соглашается выйти за Лужина — человека с деньгами и связями. Брак задуман ради брата: Лужин должен помочь ему в карьере.</p>
         <ul class="slide__list">
-          <li>Появляется, когда сам решит. Поэтому каждый визит — событие.</li>
-          <li>Лучший будильник — тёплый и мурчащий.</li>
-          <li>Если сомневаешься — погладь кота. Если не сомневаешься — тоже.</li>
+          <li>Перед решением она всю ночь не спала и молилась, а утром объявила о согласии.</li>
+          <li>На разговоры о жертве отвечает, что выходит замуж для себя.</li>
+          <li>Родион эту жертву не принимает и требует отказать жениху.</li>
         </ul>
-        <button class="pet-btn" id="petBtn" type="button" aria-label="Погладить кота">Погладить кота</button>
-        <p class="sources">Источники: Wikipedia («Cat», «Cat communication»), Humphrey et al., 2020. Фото: TheCatAPI.</p>
+        <blockquote class="quote">
+          <p>«Не хочу я вашей жертвы, Дунечка, не хочу, мамаша! Не бывать тому, пока я жив, не бывать, не бывать! Не принимаю!»</p>
+          <cite>Родион — ч. 1, гл. 4</cite>
+        </blockquote>
       </div>
       <span class="slide__num" aria-hidden="true">07</span>
+    </section>
+
+    <!-- 8. РАЗРЫВ -->
+    <section class="slide" data-slide="8">
+      <figure class="plate plate--tall">
+        <img class="plate__img" src="img/photo-08.jpg" alt="Раскольников и мещанин. Иллюстрация 1881 года" decoding="async" onerror="this.onerror=null;this.src='img/pl-break.svg';">
+        <figcaption class="plate__cap">Раскольников и мещанин. Иллюстрация В. Порфирьева, 1881.</figcaption>
+      </figure>
+      <div class="slide__content">
+        <p class="slide__kicker">08 · Разрыв</p>
+        <h2 class="slide__title">Он сам убирает их из своей жизни</h2>
+        <p class="slide__lead">Мать и сестра приезжают в Петербург, а Родион просит их уйти и не искать с ним встреч. Он любит их и не выносит их присутствия.</p>
+        <ul class="slide__list">
+          <li>Он требует: «Оставьте меня! Оставьте меня одного!»</li>
+          <li>В мыслях он злится на них и называет это ненавистью.</li>
+          <li>О преступлении матери он не говорит ничего — ни до признания, ни после.</li>
+        </ul>
+        <blockquote class="quote">
+          <p>«...нам лучше бы на некоторое время разойтись. Я себя нехорошо чувствую, я не спокоен... Оставьте меня! Оставьте меня одного!»</p>
+          <cite>ч. 4, гл. 3</cite>
+        </blockquote>
+      </div>
+      <span class="slide__num" aria-hidden="true">08</span>
+    </section>
+
+    <!-- 9. СУДЬБА ПОСЛЕ ПРЕСТУПЛЕНИЯ -->
+    <section class="slide slide--flip" data-slide="9">
+      <figure class="plate plate--cover">
+        <img class="plate__img" src="img/photo-09.jpg" alt="Каторжники в Сибири. Фотография 1885 года" decoding="async" onerror="this.onerror=null;this.src='img/pl-epilogue.svg';">
+        <figcaption class="plate__cap">Каторжники в Сибири. Фото 1885 г.</figcaption>
+      </figure>
+      <div class="slide__content">
+        <p class="slide__kicker">09 · После преступления</p>
+        <h2 class="slide__title">Кого он потерял</h2>
+        <p class="slide__lead">Преступление ударило по семье не меньше, чем по нему. Каждый заплатил свою часть — и никто не остался прежним.</p>
+        <ul class="slide__list">
+          <li>Мать заболевает, пока идёт суд, и через две недели умирает.</li>
+          <li>Дуня через два месяца выходит за Разумихина и берёт заботы о брате на себя.</li>
+          <li>Родион идёт на каторгу; рядом с ним — Соня, чужая ему по крови.</li>
+        </ul>
+        <blockquote class="quote">
+          <p>«После тревожного дня, проведенного в беспрерывных фантазиях, в радостных грезах и слезах, в ночь она заболела и наутро была уже в жару и в бреду. Открылась горячка. Через две недели она умерла».</p>
+          <cite>Эпилог I</cite>
+        </blockquote>
+      </div>
+      <span class="slide__num" aria-hidden="true">09</span>
+    </section>
+
+    <!-- 10. ВЫВОД -->
+    <section class="slide" data-slide="10">
+      <figure class="plate plate--tall">
+        <img class="plate__img" src="img/photo-10.jpg" alt="Соня Мармеладова. Рисунок П. М. Боклевского" decoding="async" onerror="this.onerror=null;this.src='img/pl-verdict.svg';">
+        <figcaption class="plate__cap">Соня Мармеладова. Рисунок П. М. Боклевского.</figcaption>
+      </figure>
+      <div class="slide__content">
+        <p class="slide__kicker">10 · Вывод</p>
+        <h2 class="slide__title">Семья настоящая — и всё-таки не спасла</h2>
+        <div class="claims">
+          <div class="claim">
+            <h3>Что держало</h3>
+            <p>Мать и Дуня платят за него: деньгами, покоем, своей судьбой. По чувству это настоящая семья.</p>
+          </div>
+          <div class="claim">
+            <h3>Где разрыв</h3>
+            <p>Жертву он не принимает и взамен не даёт ничего: молчание, ложь, требование оставить его одного.</p>
+          </div>
+          <div class="claim">
+            <h3>Что выросло</h3>
+            <p>Любовь близких стала долгом, который не отдать, и озлоблением. Теория «право имею» удобна тому, кто не хочет быть никому должен.</p>
+          </div>
+        </div>
+        <div class="verdict">
+          <p>Семья дала Родиону веру в собственную исключительность и не дала человека, с которым можно говорить прямо. Первым таким человеком стала Соня — чужая.</p>
+        </div>
+        <p class="sources">Цитаты — по тексту романа (ч. 1, гл. 1, 3, 4; ч. 3, гл. 3; ч. 4, гл. 3; ч. 6, гл. 7; эпилог I). Иллюстрации — П. М. Боклевский, В. Порфирьев; фото — общественное достояние, кроме снимка дома (A. Savin, CC BY-SA 3.0).</p>
+      </div>
+      <span class="slide__num" aria-hidden="true">10</span>
     </section>
 
   </main>
@@ -171,7 +240,7 @@
 
   <div class="controls">
     <button class="controls__btn" id="prev" type="button" aria-label="Предыдущий слайд">‹</button>
-    <span class="controls__counter" aria-live="polite"><span id="current">1</span><span class="slash">/</span><span id="total">7</span></span>
+    <span class="controls__counter" aria-live="polite"><span id="current">1</span><span class="slash">/</span><span id="total">10</span></span>
     <button class="controls__btn" id="next" type="button" aria-label="Следующий слайд">›</button>
     <span class="controls__sep" aria-hidden="true"></span>
     <button class="controls__btn controls__btn--icon" id="fullscreen" type="button" aria-label="Полный экран" title="Полный экран (F)" aria-pressed="false">
@@ -185,3 +254,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

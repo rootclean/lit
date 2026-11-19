@@ -9,9 +9,6 @@
   var progressBar = document.getElementById("progressBar");
   var dotsWrap = document.getElementById("dots");
   var fsBtn = document.getElementById("fullscreen");
-  var petBtn = document.getElementById("petBtn");
-  var petTarget = document.getElementById("petTarget");
-  var petLayer = document.querySelector(".pet-layer");
 
   var index = 0;
   var settingHash = false;
@@ -68,7 +65,7 @@
   nextBtn.addEventListener("click", next);
   prevBtn.addEventListener("click", prev);
 
-  // Ссылки #3 и кнопки Back/Forward
+  // Ссылки вида index.html#3 и кнопки «назад / вперёд» браузера
   window.addEventListener("hashchange", function () {
     if (settingHash) { settingHash = false; return; }
     var n = parseInt(location.hash.replace("#", ""), 10);
@@ -78,8 +75,6 @@
   // Клавиатура
   document.addEventListener("keydown", function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
-
-    // Пробел не должен красть активацию у кнопок и ссылок
     if (e.key === " " && isInteractive(e.target)) return;
 
     if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
@@ -137,36 +132,15 @@
     }
   }, { passive: true });
 
-  // «Погладить кота» — сердечки
-  function spawnHearts() {
-    var layer = petLayer || petTarget;
-    if (!layer) return;
-    for (var i = 0; i < 9; i++) {
-      var h = document.createElement("span");
-      h.className = "heart";
-      h.setAttribute("aria-hidden", "true");
-      h.textContent = "♥";
-      h.style.left = 12 + Math.random() * 70 + "%";
-      h.style.top = 18 + Math.random() * 55 + "%";
-      h.style.fontSize = 14 + Math.random() * 18 + "px";
-      h.style.animationDelay = Math.random() * 0.3 + "s";
-      layer.appendChild(h);
-      (function (node) {
-        setTimeout(function () { node.remove(); }, 2600);
-      })(h);
-    }
-  }
+  // Если рядом лежит фотография (img/photo-02.jpg и т. д.), она заменяет схему
+  Array.prototype.forEach.call(document.querySelectorAll("img[data-photo]"), function (img) {
+    var photo = img.getAttribute("data-photo");
+    var probe = new Image();
+    probe.onload = function () { img.src = photo; };
+    probe.src = photo;
+  });
 
-  if (petBtn) {
-    var defaultLabel = petBtn.textContent;
-    petBtn.addEventListener("click", function () {
-      spawnHearts();
-      petBtn.textContent = "Мур-р-р ♥";
-      setTimeout(function () { petBtn.textContent = defaultLabel; }, 1400);
-    });
-  }
-
-  // Стартовый слайд: hash или первый
+  // Стартовый слайд: из адреса или первый
   var fromHash = parseInt(location.hash.replace("#", ""), 10);
   show(Number.isFinite(fromHash) ? fromHash - 1 : 0, false);
   updateFullscreenButton();
