@@ -30,10 +30,11 @@ body {
   color: var(--ink);
   background-color: var(--paper);
   background-image:
+    radial-gradient(130% 100% at 50% 42%, rgba(255, 253, 247, 0.42) 40%, rgba(230, 217, 195, 0.5) 100%),
     radial-gradient(rgba(140, 118, 88, 0.05) 1px, transparent 1px),
     radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1px);
-  background-size: 27px 27px, 27px 27px;
-  background-position: 0 0, 13px 13px;
+  background-size: 100% 100%, 27px 27px, 27px 27px;
+  background-position: center, 0 0, 13px 13px;
   overflow: hidden;
 }
 
@@ -56,6 +57,35 @@ body {
 }
 
 .slide.is-active { opacity: 1; visibility: visible; z-index: 2; }
+
+/* Тонкая рамка и уголки — чтобы поля не выглядели пустыми */
+
+.slide:not(.slide--title)::before {
+  content: "";
+  position: absolute;
+  inset: 2.6vh 2vw;
+  border: 1px solid rgba(140, 118, 88, 0.18);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slide:not(.slide--title)::after {
+  content: "";
+  position: absolute;
+  inset: 2.6vh 2vw;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background:
+    linear-gradient(var(--gold), var(--gold)) left top / 26px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left top / 1px 26px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right top / 26px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right top / 1px 26px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left bottom / 26px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left bottom / 1px 26px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right bottom / 26px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right bottom / 1px 26px no-repeat;
+}
 
 .slide--flip .plate { order: 2; }
 .slide--flip .slide__content { order: 1; }
@@ -308,6 +338,123 @@ body {
   line-height: 1.5;
   color: var(--muted);
   max-width: 56ch;
+}
+
+/* ---------- Слайды без картинок: источники и финал ---------- */
+
+.slide--plain {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.slide--plain .slide__content {
+  max-width: 980px;
+  width: 100%;
+}
+
+.srcgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4vh 3.4vw;
+  margin-top: 1.2vh;
+}
+
+.srcgrid h3 {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9vh;
+  padding-bottom: 0.7vh;
+  border-bottom: 1px solid var(--line);
+}
+
+.srcgrid ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+}
+
+.srcgrid li {
+  position: relative;
+  padding-left: 15px;
+  font-size: clamp(12.5px, 0.94vw, 15px);
+  line-height: 1.42;
+  color: var(--ink-soft);
+}
+
+.srcgrid li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.66em;
+  width: 6px;
+  height: 1.2px;
+  background: var(--gold);
+}
+
+.srcnote {
+  margin-top: 2.2vh;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Финальный слайд */
+
+.slide--thanks {
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  text-align: center;
+}
+
+.thanks { max-width: 1400px; }
+
+.thanks__kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.thanks__title {
+  font-family: var(--serif);
+  font-size: clamp(52px, 7.4vw, 110px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin: 2.6vh 0 2.2vh;
+  text-wrap: balance;
+}
+
+.thanks__rule {
+  position: relative;
+  width: 120px;
+  height: 1px;
+  margin: 0 auto 2.4vh;
+  background: var(--gold);
+}
+
+.thanks__rule::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.thanks__note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.5vw, 22px);
+  color: var(--muted);
 }
 
 /* ---------- Появление ---------- */
